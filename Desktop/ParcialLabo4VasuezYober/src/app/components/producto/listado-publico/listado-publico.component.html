@@ -1,0 +1,28 @@
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">codigo</th>
+        <th scope="col">descripcion</th>
+        <th scope="col">precio</th>
+        <th scope="col">stock</th>
+        <th scope="col">Pais de Origen</th>
+        <th scope="col">Es comestible?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        @for (producto of listaProductos; track $index) {
+          <th scope="row">{{ producto.codigo }}</th>
+          <td>{{ producto.descripcion }}</td>
+          <td>{{ producto.precio}}</td>
+          <td>{{ producto.stock }}</td>
+          <td>{{ producto.paisOrigen }}</td>
+          <td>{{ producto.comestible }}</td>
+        }
+
+      </tr>
+    </tbody>
+  </table>
+
+

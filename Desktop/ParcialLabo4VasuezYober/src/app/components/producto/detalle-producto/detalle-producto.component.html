@@ -1,0 +1,33 @@
+<table *ngIf="producto" class="table table-bordered">
+  <thead>
+    <tr>
+      <th colspan="2" class="text-center">Detalles del Producto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>codigo:</strong></td>
+      <td>{{ producto.codigo }}</td>
+    </tr>
+    <tr>
+      <td><strong>descripcion:</strong></td>
+      <td>{{ producto.descripcion }}</td>
+    </tr>
+    <tr>
+      <td><strong>precio:</strong></td>
+      <td>{{ producto.precio }}</td>
+    </tr>
+    <tr>
+      <td><strong>stock:</strong></td>
+      <td>{{ producto.stock }}</td>
+    </tr>
+    <tr>
+      <td><strong>Pais de Origen:</strong></td>
+      <td (click)="seleccionarPais(producto.paisOrigen)">{{ producto.paisOrigen }}</td>
+    </tr>
+    <tr>
+      <td><strong>Es comestible?:</strong></td>
+      <td>{{ producto.comestible }}</td>
+    </tr>
+  </tbody>
+</table>

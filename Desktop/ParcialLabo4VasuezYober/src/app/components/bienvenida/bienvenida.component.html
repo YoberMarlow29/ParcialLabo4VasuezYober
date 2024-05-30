@@ -1,0 +1,19 @@
+
+<section class="vh-100 gradient-custom" style="background: linear-gradient(to right, #6a11cb, #2575fc);">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem; background: rgba(0, 0, 0, 0.7);">
+          <div class="card-body p-5 text-center">
+            @if (userData) {
+              <img [src]="userData.avatar_url" alt="User Avatar" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+              <p class="fw-bold">{{ userData.name }}</p>
+              <p>{{ userData.bio }}</p>
+              <p>{{ userData.location }}</p>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
