@@ -1,0 +1,112 @@
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <h2>Formulario de Alta de Producto</h2>
+      <p class="lead">Complete los datos del producto y haga clic en "Agregar" para registrarlo.</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Datos del Producto</h4>
+        <form [formGroup]="altaForm" (ngSubmit)="btnAgregar()" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="codigo" class="form-label">codigo</label>
+              <input formControlName="codigo" type="text" class="form-control" id="codigo" required>
+
+              @if (errorControl['codigo'].errors?.['required']) {
+
+                <span style="color: red;">
+                  codigo requerido
+                </span>
+              }
+            </div>
+
+            <div class="col-sm-6">
+              <label for="descripcion" class="form-label">descripcion</label>
+              <input formControlName="descripcion" type="text" class="form-control" id="descripcion" required>
+              @if (errorControl['descripcion'].errors?.['required']) {
+
+                <span style="color: red;">
+                  descripcion requerido
+                </span>
+              }
+            </div>
+
+            <div class="col-sm-6">
+              <label for="precio" class="form-label">precio</label>
+              <input formControlName="precio" type="text" class="form-control" id="precio" required>
+              @if (errorControl['precio'].errors?.['required']) {
+
+                <span style="color: red;">
+                  precio requerido
+                </span>
+              }
+            </div>
+
+            <div class="col-sm-6">
+              <label for="stock" class="form-label">Stock</label>
+              <input formControlName="stock" type="text" class="form-control" id="stock" required>
+              @if (errorControl['stock'].errors?.['required']) {
+
+                <span style="color: red;">
+                  stock requerido
+                </span>
+              }
+            </div>
+
+            <div class="col-12">
+              <label for="continent" class="form-label">Continente</label>
+              <select class="form-select" (change)="onContinentSelect($event)">
+                <option value="">Seleccione un continente</option>
+                <option value="Africa">África</option>
+                <option value="Americas">Américas</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europa</option>
+                <option value="Oceania">Oceanía</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              @if (selectedContinent) {
+
+                <label for="paisOrigen" class="form-label">País de Origen</label>
+                <input formControlName="paisOrigen" type="text" class="form-control" id="paisOrigen" readonly required>
+                <app-listado-pais [continent]="selectedContinent" (countryEv)="onCountrySelect($event)"></app-listado-pais>
+                <div class="invalid-feedback">
+
+                  @if (errorControl['paisOrigen'].errors?.['required']) {
+
+                    <span style="color: red;">
+                      paisOrigen requerido
+                    </span>
+                  }
+                </div>
+              }
+
+            </div>
+
+            <div class="col-12">
+              <label for="comestible" class="form-label">Es comestible?</label>
+              <input formControlName="comestible" type="checkbox" class="form-check-input" id="comestible">
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="altaForm.invalid">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2021–2024 Nombre de la Empresa</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacidad</a></li>
+      <li class="list-inline-item"><a href="#">Términos</a></li>
+      <li class="list-inline-item"><a href="#">Soporte</a></li>
+    </ul>
+  </footer>
+</div>
